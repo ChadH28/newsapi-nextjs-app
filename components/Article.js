@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import styles from '../styles/component-stylings/Article.module.css'
+import styles from '../styles/component-styles/Article.module.css'
 
 export default function ArticleItem(
     {

@@ -8,7 +8,7 @@ export default function ArticleList({articles}) {
     <div className='row'>
       {
         articles.map(
-          (article, {id}) => (
+          (article) => (
             <ArticleItem article={article} key={article.id}/>
           )
         )

@@ -3,7 +3,7 @@ import { useState } from 'react';
 import {server} from '../config'
 
 export default function Searchbar() {
-  const [query, setQuery] = useState(null);
+  const [query, setQuery] = useState('');
 
   async function handleSearch(e) {
     e.preventDefault();
