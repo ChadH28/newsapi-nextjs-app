@@ -1,25 +1,23 @@
 import dotenv from 'dotenv';
 import axios from 'axios';
-import { json } from 'express/lib/response';
 dotenv.config();
 
 const key = process.env.API_KEY;
 // posting a search query
 export default async function postQueryHandler(req, res) {
+  let search = req.body.search
+  console.log("log of search", search)
   try {
-    const search = req.body.search
-    console.log(search)
     const result = await axios.get(
       `https://newsapi.org/v2/everything?q=${search}&apiKey=${key}`,
       {
         headers: {
           "Content-Type": "application/json"
         },
-        method: 'POST',
-        body: json.stringify(search)
+        method: 'POST'
       }
     )
-    const data = await response.json(); 
+    const data = await response.json(result); 
     console.log(data)
     const news_get = await axios.get(data)
     if (news_get.data.articles.length > 0) {
