@@ -7,6 +7,9 @@ GET http://localhost:3000/api/technology
 ### getting science news 
 GET http://localhost:3000/api/science
 
+### getting business news 
+GET http://localhost:3000/api/business
+
 ### Posting or adding a product 
 POST http://localhost:3000/api/searchquery
 

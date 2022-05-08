@@ -5,7 +5,7 @@ dotenv.config();
 const key = process.env.API_KEY;
 // posting a search query
 export default async function postQueryHandler(req, res) {
-  let search = req.body.search
+  const search = req.body.search
   console.log("log of search", search)
   try {
     const result = await axios.get(
