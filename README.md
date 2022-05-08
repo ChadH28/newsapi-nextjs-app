@@ -18,6 +18,41 @@ You can start editing the page by modifying `pages/index.js`. The page auto-upda
 
 The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
+<!-- ## Tailwind css Framework
+
+- Install tailwindcss and peer dependencies via npm
+- then run the init command to generate both tailwind.config.js and postcss.config.js.
+
+```bash
+npm install -D tailwindcss postcss autoprefixer
+# then
+npx tailwindcss init -p
+```
+
+- Add the paths to all of the template files in the tailwind.config.js file.
+
+```
+module.exports = {
+  content: [
+    "./pages/**/*.{js,ts,jsx,tsx}",
+    "./components/**/*.{js,ts,jsx,tsx}",
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+```
+
+- Add the @tailwind directives for each of Tailwind’s layers to the ./styles/globals.css file.
+
+```
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+``` -->
+
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
