@@ -10,10 +10,7 @@ export default async function postQueryHandler(req, res) {
   console.log("log of search", search.query)
   try {
     const result = await axios.get(
-      `https://newsapi.org/v2/everything?q=${search.query}&
-      sortBy=popularity&
-      pageSize=10&
-      apiKey=${key}`
+      `https://newsapi.org/v2/everything?q=${search.query}&sortBy=popularity&pageSize=10&apiKey=${key}`
     )
     console.log(result)
     const news_get = await axios.get(result)
