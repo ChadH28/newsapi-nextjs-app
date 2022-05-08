@@ -3,23 +3,20 @@ import axios from 'axios';
 dotenv.config();
 
 const key = process.env.API_KEY;
+
 // posting a search query
 export default async function postQueryHandler(req, res) {
-  const search = req.body.search
-  console.log("log of search", search)
+  const search = req.body
+  console.log("log of search", search.query)
   try {
     const result = await axios.get(
-      `https://newsapi.org/v2/everything?q=${search}&apiKey=${key}`,
-      {
-        headers: {
-          "Content-Type": "application/json"
-        },
-        method: 'POST'
-      }
+      `https://newsapi.org/v2/everything?q=${search.query}&
+      sortBy=popularity&
+      pageSize=10&
+      apiKey=${key}`
     )
-    const data = await response.json(result); 
-    console.log(data)
-    const news_get = await axios.get(data)
+    console.log(result)
+    const news_get = await axios.get(result)
     if (news_get.data.articles.length > 0) {
       res
         .status(200)
@@ -27,10 +24,9 @@ export default async function postQueryHandler(req, res) {
     } else {
       res
         .status(404)
-        .json({ message: `Search query not found on Server` })
+        .json({ message: `Articles not found on Server` })
     }
-  } catch (error) {
-    res
-      .status(500).json({ error: 'failed to load data' })
+  } catch (err) {
+    res.status(500).json({ error: 'failed to load data' })
   }
 };
